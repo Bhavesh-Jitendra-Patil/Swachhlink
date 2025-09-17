@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SwachhLink (By Code Titans)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>SwachhLink</h1>
+      <div class="meta">Team: Code Titans</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="tabs" id="mainTabs">
+      <button class="tab active" data-tab="citizen">Citizen</button>
+      <button class="tab" data-tab="admin">Admin</button>
+      <button class="tab" data-tab="agent">Agent</button>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT: Main content per tab -->
+      <div id="contentArea">
+        <!-- CITIZEN -->
+        <section class="card" id="citizenTab">
+          <h3>Report an Issue</h3>
+          <p class="hint">Add description, category, a photo and location (optional).</p>
+
+          <div class="form-row">
+            <label for="c-desc">Short description</label>
+            <input id="c-desc" type="text" placeholder="e.g. Garbage pile near building A">
+          </div>
+
+          <div class="form-row two-col">
+            <div>
+              <label for="c-category">Category</label>
+              <select id="c-category">
+                <option>Garbage / Waste</option>
+                <option>Pothole / Road</option>
+                <option>Water leakage</option>
+                <option>Streetlight</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="c-urgency">Urgency</label>
+              <select id="c-urgency">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="c-location">Location (optional)</label>
+            <input id="c-location" type="text" placeholder="Enter address or landmark">
+            <button class="small ghost" id="useLocation">Use my location</button>
+          </div>
+
+          <div class="form-row">
+            <label for="c-image">Photo *</label>
+            <input id="c-image" type="file" accept="image/*">
+            <img id="c-preview" class="img-preview" style="display:none" alt="preview">
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:8px;">
+            <button class="btn" id="submitReport">Submit Report</button>
+            <button class="btn ghost" id="clearCitizen">Clear</button>
+          </div>
+
+          <hr style="margin:16px 0">
+
+          <h4>Your Reports</h4>
+          <div class="list" id="citizenReports"></div>
+        </section>
+
+        <!-- ADMIN -->
+        <section class="card" id="adminTab" style="display:none;">
+          <h3>Municipality Dashboard</h3>
+          <p class="hint">View all complaints, assign to agents and change status.</p>
+          <div class="list" id="adminReports"></div>
+        </section>
+
+        <!-- AGENT -->
+        <section class="card" id="agentTab" style="display:none;">
+          <h3>Agent Panel</h3>
+          <p class="hint">View assigned tasks and update verification / resolution.</p>
+          <div class="list" id="agentTasks"></div>
+        </section>
+      </div>
+
+      <!-- RIGHT: quick stats / controls -->
+      <aside>
+        <div class="card">
+          <h4>Quick Controls</h4>
+          <p class="small-muted">Simulate assigning an agent or auto-resolve for demo.</p>
+          <button class="small" id="autoAssign">Auto-assign unassigned</button>
+          <button class="small" id="autoResolve">Auto-resolve completed (demo)</button>
+          <hr>
+          <h4>Storage</h4>
+          <p class="small-muted">Data is stored in your browser. Clearing browser storage will erase demo data.</p>
+          <button class="small ghost" id="resetAll">Reset All (clear storage)</button>
+        </div>
+
+        <div class="card" style="margin-top:12px;">
+          <h4>Status Legend</h4>
+          <div class="small-muted"><span class="pill received"></span> Received</div>
+          <div class="small-muted"><span class="pill inprogress"></span> In Progress</div>
+          <div class="small-muted"><span class="pill resolved"></span> Resolved</div>
+        </div>
+      </aside>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
